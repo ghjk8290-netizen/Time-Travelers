@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1900 — Time Travelers</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090f1e;--panel:#14213a;--gold:#f5c76b;--mint:#73e0c1;--white:#f7f8fc;--muted:#b0bdd0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 5%,#1e3453 0,transparent 35%),var(--bg);color:var(--white);font-family:'DM Sans',sans-serif}
+.wrap{width:min(850px,92%);margin:auto;padding:25px 0 55px}a.back{color:var(--mint);text-decoration:none;font-weight:700}.eyebrow{color:var(--mint);letter-spacing:.16em;font-weight:800;font-size:.72rem;margin-top:36px}
+h1{font:800 clamp(3rem,9vw,5rem)/1 'Playfair Display',serif;color:var(--gold);margin:10px 0}h2{font-size:1.3rem;margin:0 0 10px}.sub{font-size:1.1rem;color:var(--muted);line-height:1.6}
+.panel{background:linear-gradient(145deg,#172641,#101a2d);border:1px solid #30415f;border-radius:22px;padding:20px;margin-top:25px}video{width:100%;display:block;border-radius:14px;background:#050912;aspect-ratio:16/9}.source{font-size:.8rem;color:#9baac0;margin-top:10px}.source a{color:var(--mint)}.question{font-size:1.18rem;font-weight:800;line-height:1.4;margin:0 0 15px}.options{display:grid;gap:10px}.option{background:#202f49;color:#fff;border:1px solid #3a4c68;border-radius:12px;padding:14px;text-align:left;font:600 1rem 'DM Sans';cursor:pointer}.option:hover{border-color:var(--gold)}.option:disabled{cursor:default;opacity:.92}.option.correct{background:#174b42;border-color:#73e0c1}.option.wrong{background:#552c38;border-color:#ed8c9e}#feedback{margin-top:14px;font-weight:800;min-height:25px}.note{color:var(--muted);font-size:.9rem;line-height:1.6;margin-top:14px}.next{display:inline-block;margin-top:22px;padding:12px 16px;border-radius:12px;background:var(--gold);color:#18202d;text-decoration:none;font-weight:800}
+</style></head><body><main class="wrap">
+<a class="back" href="index.html">← Back to the show</a>
+<div class="eyebrow">TIME TRAVELERS TALK SHOW · THE PAST</div><h1>1900</h1><h2>A journey to the streets of the past</h2><p class="sub">Take a look at transport around the turn of the twentieth century. Horse-drawn vehicles were common, and electric trams were beginning to change city travel.</p>
+<section class="panel"><video controls playsinline preload="metadata"><source src="https://commons.wikimedia.org/wiki/Special:FilePath/Early_English_Traffic,_Turn_of_the_Century_London_(1896-1903).webm" type="video/webm">Your browser does not support this video.</video>
+<div class="source">Video source: <a href="https://commons.wikimedia.org/wiki/File:Early_English_Traffic,_Turn_of_the_Century_London_(1896-1903).webm" target="_blank" rel="noopener">Early English Traffic (1896–1903) — Wikimedia Commons</a></div>
+</section>
+<section class="panel"><p class="question">Before cars became common, which was a common way to travel?</p><div class="options"><button class="option" type="button" data-answer="0">A. Horse-drawn carriages</button>
+<button class="option" type="button" data-answer="1">B. Electric scooters</button>
+<button class="option" type="button" data-answer="2">C. High-speed trains</button></div><div id="feedback" aria-live="polite"></div><p class="note">Historical footage: the clip covers 1896–1903, so it shows transport around the year 1900.</p></section>
+<a class="next" href="index.html">Return to the time-travel hub</a>
+</main>
+<script>
+const correct = 0;
+const buttons = [...document.querySelectorAll('.option')];
+buttons.forEach((button, index) => button.addEventListener('click', () => {
+ buttons.forEach((b,i) => { b.disabled=true; if(i===correct)b.classList.add('correct'); });
+ const feedback=document.getElementById('feedback');
+ if(index===correct) feedback.textContent='✓ Correct! Great job!';
+ else { button.classList.add('wrong'); feedback.textContent='Not quite. The correct answer is highlighted above. Try to remember it for the talk show!'; }
+}));
+</script></body></html>
